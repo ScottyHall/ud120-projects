@@ -1,0 +1,22 @@
+SOURCE: usatoday30.usatoday.com/money/industries/energy/2005-12-28-enron-participants_x.htm
+
+y, Kenneth, Lay
+y, Jeffrey, Skilling
+n, Kevin, Howard
+n, Michael, Krautz
+n, Scott, Yeager
+n, Joseph, Hirko
+n, Rex, Shelby
+n, David, Bermingham
+n, Giles, Darby
+n, Gary, Mulgrew
+n, Daniel, Bayley
+n, James, Brown
+n, Robert, Furst
+n, William, Fuhs
+n, Richard, Casey
+n, Christopher, Calger
+n, Timothy, DeSpain
+n, Kevin, Hannon
+n, Mark, Koenig
+y, John, Forney

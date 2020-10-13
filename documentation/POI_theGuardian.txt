@@ -1,0 +1,30 @@
+SOURCE: https://www.theguardian.com/business/2002/jan/13/corporatefraud.enron
+
+
+ENRON:
+firstname, lastname, description
+Kenneth, Lay, Enron chairman and CEO; served as Enron's CEO from 1985 until Jeffrey Skilling's election in early 2001; re-elected by board after Skilling's resignation in August. Lay helped to transform Enron from a regional natural gas pipeline company to global energy behemoth.
+Jeffrey, Skilling, former Enron president and CEO; resigned in August 2001 for what he said were personal reasons after more than a decade at the company.
+Mark, Frevert, Enron vice chairman.
+Lawrence 'Greg', Whalley, Enron president and chief operating officer.
+Jeffrey, McMahon, Enron chief financial officer.
+Andrew, Fastow, former Enron chief financial officer, ousted in October (2001).
+Robert, Bennett, the attorney representing Enron in Washington, who also represented President Bill Clinton in the Paula Jones case.
+
+INVESTIGATORS:
+firstname, lastname, description
+Carl, Levin, Democratic senator from Michigan, chairman of the Senate Permanent Subcommittee on Investigations, said 'Something was very rotten in the state of Enron.'
+Joe, Lieberman, Democratic senator from Connecticut, chairman of the Senate Governmental Affairs Committee.
+Harvey, Pitt, chairman of the Securities and Exchange Commission.
+
+ADMINISTRATION OFFICIALS:
+George W, Bush, President, said he wants federal agencies to look into Enron and 'appreciate the importance' of its bankruptcy on employees and others. Enron officials have been key Bush contributors.
+Dick, Cheney, Vice-President, met Enron CEO Kenneth Lay in April for half an hour and discussed energy policy issues. He or members of the administration's energy task force met Enron representatives six times, the White House says.
+Karl, Rove, Senior Bush adviser, owned Enron stock at the beginning of Bush's term but sold it under federal ethics rules.
+Lawrence, Lindsey, White House economic adviser, served on Enron board last year.
+Robert, Zoellick, US trade representative, served on Advisory Council of Enron Corporation.
+Thomas, White, Secretary of the Navy, Enron executive for 10 years.
+
+OTHERS:
+Joseph, Berardino, CEO of Enron auditor Andersen, testified in December that his firm told Enron's audit committee that some of the company's actions might have been illegal.
+Marc, Racicot, Head of the Republican National Committee, lobbied for Enron until Bush appointment.
