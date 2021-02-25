@@ -14,24 +14,57 @@ link-citations: yes
 knitr::opts_chunk$set(echo = TRUE)
 ```
 # Enron Submission Free-response Questions
-> 1. Summarize for us the goal of this project and how machine learning is useful in trying to accomplish it. As part of your answer, give some background on the dataset and how it can be used to answer the project question. Were there any outliers in the data when you got it, and how did you handle those?  [relevant rubric items: “data exploration”, “outlier investigation”]
+1. Summarize for us the goal of this project and how machine learning is useful in trying to accomplish it. As part of your answer, give some background on the dataset and how it can be used to answer the project question. Were there any outliers in the data when you got it, and how did you handle those?  [relevant rubric items: “data exploration”, “outlier investigation”]
+
+> ### 1. Response:
+
+> The Enron dataset consists of 146 entries with 21 features per entry. The goal of the project is to classify people within the enron dataset successfully as a person of interest (POI) with a validation score of 0.3 or higher. There are missing values on every features, however, it ranges from missing 13.7%, to 97.7%. It is important to pick a feature that is present in as many user profiles as possible. This ensures the largest sample size to test on.
+
+| Feature Title | # of missing values | % of missing values |
+| ------------- | ------------------- | ------------------- |
+| salary        | 51                  | 34.9%               |
+| to messages   | 60                  | 41.1%               |
+| deferral payments | 107             | 73.3%               |
+| total payments | 21                 | 14.4%               |
+| exercised stock options | 44        | 30.1%               |
+| bonus         | 64                  | 43.8%               |
+| restricted stock | 36               | 24.7%               |
+| restricted stock deferred | 128     | 87.7%               |
+| total stock value | 20              | 13.7%               |
+| director fees | 129                 | 88.4%               |
+| from poi to this person | 60        | 41.1%               |
+| loan advances | 142                 | 97.3%               |
+| from messages | 60                  | 41.1%               |
+| other         | 53                  | 36.3%               |
+| expenses      | 51                  | 34.9%               |
+| from this person to poi | 60        | 41.1%               |
+| deferred income | 97                | 66.4%               |
+| shared receipt with poi | 60        | 41.1%               |
+| email address | 35                  | 24.0%               |
+| long term incentive | 80            | 54.8%               |
+| message ratio feature (custom) | 60 | 41.1%               |
+| salary mult bonus feature (custom) | 65 | 45.0%           |
+
+2. What features did you end up using in your POI identifier, and what selection process did you use to pick them? Did you have to do any scaling? Why or why not? As part of the assignment, you should attempt to engineer your own feature that does not come ready-made in the dataset -- explain what feature you tried to make, and the rationale behind it. (You do not necessarily have to use it in the final analysis, only engineer and test it.) In your feature selection step, if you used an algorithm like a decision tree, please also give the feature importances of the features that you use, and if you used an automated feature selection function like SelectKBest, please report the feature scores and reasons for your choice of parameter values.  [relevant rubric items: “create new features”, “intelligently select features”, “properly scale features”]
+
+> ### 2. Response:
+
+> 
+
+3. What algorithm did you end up using? What other one(s) did you try? How did model performance differ between algorithms?  [relevant rubric item: “pick an algorithm”]
+
+> ### 3. Response: 
 
 
+4. What does it mean to tune the parameters of an algorithm, and what can happen if you don’t do this well?  How did you tune the parameters of your particular algorithm? What parameters did you tune? (Some algorithms do not have parameters that you need to tune -- if this is the case for the one you picked, identify and briefly explain how you would have done it for the model that was not your final choice or a different model that does utilize parameter tuning, e.g. a decision tree classifier).  [relevant rubric items: “discuss parameter tuning”, “tune the algorithm”]
 
-> 2. What features did you end up using in your POI identifier, and what selection process did you use to pick them? Did you have to do any scaling? Why or why not? As part of the assignment, you should attempt to engineer your own feature that does not come ready-made in the dataset -- explain what feature you tried to make, and the rationale behind it. (You do not necessarily have to use it in the final analysis, only engineer and test it.) In your feature selection step, if you used an algorithm like a decision tree, please also give the feature importances of the features that you use, and if you used an automated feature selection function like SelectKBest, please report the feature scores and reasons for your choice of parameter values.  [relevant rubric items: “create new features”, “intelligently select features”, “properly scale features”]
-
-
-> 3. What algorithm did you end up using? What other one(s) did you try? How did model performance differ between algorithms?  [relevant rubric item: “pick an algorithm”]
+> ### 4. Response: 
 
 
+5. What is validation, and what’s a classic mistake you can make if you do it wrong? How did you validate your analysis?  [relevant rubric items: “discuss validation”, “validation strategy”]
 
-> 4. What does it mean to tune the parameters of an algorithm, and what can happen if you don’t do this well?  How did you tune the parameters of your particular algorithm? What parameters did you tune? (Some algorithms do not have parameters that you need to tune -- if this is the case for the one you picked, identify and briefly explain how you would have done it for the model that was not your final choice or a different model that does utilize parameter tuning, e.g. a decision tree classifier).  [relevant rubric items: “discuss parameter tuning”, “tune the algorithm”]
+> ### 5. Response: 
 
+6. Give at least 2 evaluation metrics and your average performance for each of them.  Explain an interpretation of your metrics that says something human-understandable about your algorithm’s performance. [relevant rubric item: “usage of evaluation metrics”]
 
-
-> 5. What is validation, and what’s a classic mistake you can make if you do it wrong? How did you validate your analysis?  [relevant rubric items: “discuss validation”, “validation strategy”]
-
-
-
-> 6. Give at least 2 evaluation metrics and your average performance for each of them.  Explain an interpretation of your metrics that says something human-understandable about your algorithm’s performance. [relevant rubric item: “usage of evaluation metrics”]
-
+> ### 6. Response: 
