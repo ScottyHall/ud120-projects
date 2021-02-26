@@ -31,14 +31,19 @@ from tester import dump_classifier_and_data
 
 simplefilter(action='ignore') # ignore some sklearn future deprecation messages
 test_algorithms = False
+test_with_custom_features = True
 
 ### Task 1: Select what features you'll use.
 ### features_list is a list of strings, each of which is a feature name.
 ### The first feature must be "poi".
 # List of all features for both exploration, and final classifiers
-features_list = ['poi','salary', 'exercised_stock_options',
-                 'total_stock_value', 'expenses',
-                 'exercised_bonus_mult', 'from_ratio_to_poi']
+if(test_with_custom_features):
+    features_list = ['poi','salary', 'exercised_stock_options',
+                    'total_stock_value', 'expenses',
+                    'exercised_bonus_mult', 'from_ratio_to_poi']
+else:
+    features_list = ['poi','salary', 'exercised_stock_options',
+                 'total_stock_value', 'expenses']
 
 ### Load the dictionary containing the dataset
 with open("final_project_dataset.pkl", "r") as data_file:
@@ -60,6 +65,18 @@ def is_nan(value):
     is_nan = math.isnan(float(value))
     return is_nan
 
+def pop_from_data(my_features, outlier_list):
+    """
+    remove outliers in outlier list
+    return new dataset with outliers taken out
+    """
+    for person in outlier_list:
+        try:
+            my_features.pop(person)
+        except:
+            print('{0} not found to remove'.format(person))
+    return my_features
+
 ### Task 3: Create new feature(s)
 ### Store to my_dataset for easy export below.
 my_dataset = data_dict
@@ -75,7 +92,10 @@ def create_new_features(my_features):
     salary_mult_bonus_feature = 'salary_mult_bonus'
     exercised_stock_sal_mult_feature = 'exercised_bonus_mult'
     message_ratio_feature = 'from_ratio_to_poi'
+    list_to_pop = []
     for person in my_features:
+        if(not is_nan(my_features[person]['total_stock_value'])):
+            my_features[person]['total_stock_value'] = abs(my_features[person]['total_stock_value'])
         # checks if dependent features are present, builds new feature
         if(is_nan(my_features[person]['from_messages'])):
             my_features[person][message_ratio_feature] = 'NaN'
@@ -103,16 +123,23 @@ def create_new_features(my_features):
             exercised_and_bonus = my_features[person]['exercised_stock_options'] * my_features[person][salary_mult_bonus_feature]
             my_features[person][exercised_stock_sal_mult_feature] = exercised_and_bonus
         # builds data for test visualization
-        if(my_features[person]['exercised_stock_options'] != 'NaN' and my_features[person][exercised_stock_sal_mult_feature] != 'NaN'):
+        if(my_features[person]['exercised_stock_options'] != 'NaN' and my_features[person][salary_mult_bonus_feature] != 'NaN'):
             feature_data = []
             feature_data.append(my_features[person]['exercised_stock_options'])
-            feature_data.append(my_features[person][exercised_stock_sal_mult_feature])
+            feature_data.append(my_features[person][salary_mult_bonus_feature])
             data_array.append(feature_data)
             # separates the persons on interest on the plot (Blue is POI)
             if(my_features[person]['poi']):
                 poi_array.append(1)
             else:
                 poi_array.append(0)
+        for feature in features_list:
+            if(is_nan(my_features[person][feature])):
+                if person not in list_to_pop:
+                    list_to_pop.append(person)
+
+    # remove outliers from the dataset
+    my_features = pop_from_data(my_features, list_to_pop)
 
     return my_features
 
@@ -129,10 +156,7 @@ labels, features = targetFeatureSplit(data)
 ### you'll need to use Pipelines. For more info:
 ### http://scikit-learn.org/stable/modules/pipeline.html
 
-# set as new default classifier from best past runs
 clf = DecisionTreeClassifier(min_samples_split=20, criterion='entropy')
-
-# CLASSIFIERS START
 
 def get_classifier_list():
     """
@@ -198,11 +222,8 @@ def final_eval(features, labels, labels_train, labels_test, clf):
             print(clf)
             dump_classifier_and_data(clf, my_dataset, features_list)
         else:
-            # if a classifier wasn't found based on random split training, default to expected run from multiple iterations
             dump_classifier_and_data(clf, my_dataset, features_list)
     print("### Completed, you can now run tester.py ###")
-
-# CLASSIFIERS END
 
 # data for data exploration visualizations
 X = data_array
